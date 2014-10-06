@@ -19,4 +19,6 @@ Variance Gamma (VarGamma) distribution module for Python.
   * numpy,
   * scipy
 
-See *example.py* for more details.
+See *example.py* for more details, it should produce something like this:
+
+![example.py output](http://img-fotki.yandex.ru/get/12/10605357.9/0_85c4a_597991f9_L.png "example.py output")
