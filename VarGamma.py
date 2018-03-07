@@ -7,7 +7,7 @@
 # sigma - spread
 # theta - asymmetry
 # nu - shape
-# (according to Seneta, E. (2004) Fitting the variance-gamma model to financial data)
+# (notation from Seneta, E. (2004) Fitting the variance-gamma model to financial data)
 #
 # =======================================================================================
 #
@@ -57,7 +57,7 @@ def pdf(x=0.0, c=0.0, sigma=1.0, theta=0.0, nu=1.0):
 	if isinstance(x, (int, float, double)): # works with lists and arrays
 		return pdf_one_point(x, c, sigma, theta, nu)
 	else:
-		return map(lambda x: pdf_one_point(x, c, sigma, theta, nu), x)
+		return [pdf_one_point(xi, c, sigma, theta, nu) for xi in x]
 
 def cdf_one_point(x=0.0, c=0.0, sigma=1.0, theta=0.0, nu=1.0):
 	''' VarGamma cumulative distribution function in a point x '''
@@ -65,10 +65,10 @@ def cdf_one_point(x=0.0, c=0.0, sigma=1.0, theta=0.0, nu=1.0):
 
 def cdf(x=0.0, c=0.0, sigma=1.0, theta=0.0, nu=1.0):
 	''' VarGamma cumulative distribution function of an array or a point x '''
-	if isinstance(x, (int, float,double)):
+	if isinstance(x, (int, float, double)):
 		return cdf_one_point(x, c, sigma, theta, nu)
 	else:
-		return map(lambda x: cdf_one_point(x, c, sigma, theta, nu), x)
+		return [cdf_one_point(xi, c, sigma, theta, nu) for xi in x]
 
 def rnd(n=1, c=0.0, sigma=1.0, theta=0.0, nu=1.0):
 	''' generates n random points from VarGamma distribution '''
