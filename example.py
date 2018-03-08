@@ -15,19 +15,17 @@ cdf_values = vg.cdf(grid, c, sigma, theta, nu)
 data = vg.rnd(100, c, sigma, theta, nu)
 
 # try fitting parameters
-print 'true parameters:'
-print (c, sigma, theta, nu)
-print 'parameters estimated by Methods of Moments:'
+print('true parameters:')
+print(c, sigma, theta, nu)
+print('parameters estimated by Methods of Moments:')
 (c_fit, sigma_fit, theta_fit, nu_fit) = vg.fit_moments(data)
-print (c_fit, sigma_fit, theta_fit, nu_fit)
-print 'parameters estimated by Maximum Likelihood:'
+print(c_fit, sigma_fit, theta_fit, nu_fit)
+print('parameters estimated by Maximum Likelihood:')
 (c_fit, sigma_fit, theta_fit, nu_fit) = vg.fit(data)
-print (c_fit, sigma_fit, theta_fit, nu_fit)
+print(c_fit, sigma_fit, theta_fit, nu_fit)
 
 # prepare plotting tools
 fig = plt.figure()
-plt.hold(True)
-plt.axis('off')
 ax1 = fig.add_subplot(211)
 ax2 = fig.add_subplot(212)
 
